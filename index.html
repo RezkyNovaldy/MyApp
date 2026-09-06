@@ -70,7 +70,7 @@
 
     <!-- Dynamic App Cards Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-      <template x-for="app in filteredApps" :key="app.id">
+      <template x-for="app in filteredApps" :key="app.judul">
         <div class="group bg-slate-900/80 hover:bg-slate-900 border border-slate-800/80 hover:border-indigo-500/50 rounded-2xl p-5 transition-all duration-300 hover:shadow-xl hover:shadow-indigo-500/5 flex flex-col justify-between">
           <div class="space-y-4">
             <div class="flex items-start justify-between">
@@ -126,7 +126,7 @@
       const apiUrl = 'https://script.google.com/macros/s/AKfycb...API_SPREADSHEET_KAMU.../exec';
       
       try {
-        const response = await fetch(apiUrl);
+        const response = await fetch(apiUrl, { redirect: "follow" });
         this.apps = await response.json();
       } catch (error) {
         console.error('Gagal mengambil data dari Google Sheets:', error);
