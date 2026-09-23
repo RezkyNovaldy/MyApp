@@ -50,9 +50,12 @@
     <!-- Header -->
     <header class="glass-panel sticky top-0 z-40">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <div class="w-8 h-8 rounded bg-gradient-to-tr from-cyan-500 to-blue-500 flex items-center justify-center font-bold text-white shadow-lg">MD</div>
-                <h1 class="text-lg font-bold tracking-widest text-white">MY DIGITAL APPS</h1>
+            <div class="flex items-center gap-3 group">
+                <!-- Menggunakan endpoint thumbnail Google Drive agar loading cepat dan anti-CORS -->
+                <img src="https://drive.google.com/thumbnail?id=1KB9y3LcmqH0iO_PvYI11JXLOykWqJ9oE&sz=w200" 
+                    alt="Profile Rezky" 
+                    class="w-10 h-10 rounded-full object-cover border-2 border-cyan-500 shadow-[0_0_15px_rgba(6,182,212,0.4)] transition-transform duration-300 group-hover:scale-110">
+                <h1 class="text-lg font-bold tracking-widest text-white">REZKY APPS</h1>
             </div>
             
             <!-- Desktop Nav -->
@@ -330,7 +333,8 @@
                 titleDiv.className = 'flex-grow min-w-0';
                 
                 const title = document.createElement('h3');
-                title.className = 'text-lg font-bold text-white leading-tight mb-1 truncate';
+                // Class 'truncate' dihapus. 'leading-snug' ditambahkan agar jarak antar baris rapi saat judul panjang
+                title.className = 'text-lg font-bold text-white leading-snug mb-2';
                 title.textContent = app.judul_app; // SAFE TEXT ASSIGNMENT
                 
                 const badgeDiv = document.createElement('div');
@@ -344,7 +348,8 @@
 
                 if (app.versi) {
                     const badgeVer = document.createElement('span');
-                    badgeVer.className = 'text-[10px] uppercase tracking-wider font-semibold text-slate-400 bg-slate-800 border border-slate-700 px-2 py-0.5 rounded';
+                    // Diubah menjadi tema Amber (Emas) transparan agar mencolok tapi tetap elegan
+                    badgeVer.className = 'text-[10px] uppercase tracking-wider font-semibold text-amber-400 bg-amber-400/10 border border-amber-400/20 px-2 py-0.5 rounded';
                     badgeVer.textContent = app.versi;
                     badgeDiv.appendChild(badgeVer);
                 }
